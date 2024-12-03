@@ -1,0 +1,38 @@
+// Include the required libraries
+
+#include <Wire.h> // Include the Wire library for I2C communication
+
+#include <Adafruit_Sensor.h> // Include the Adafruit Sensor library for sensor readings
+#include <Adafruit_ADS1015.h> // Include the Adafruit ADS1015 library for ADC conversion
+
+
+// Create an instance of the ADS1015 ADC Adafruit_ADS1015 ads;
+
+
+void setup() {
+
+// Initialize Serial communication Serial.begin(9600);
+
+
+// Initialize the ADC ads.begin();
+}
+
+
+
+void loop() {
+
+// Read the raw ADC value from the soil moisture sensor (connected to A0) int16_t adcValue = ads.readADC_SingleEnded(0);
+ 
+// Convert the ADC value to a percentage (0-100%)
+
+float moisturePercentage = map(adcValue, 0, 32767, 0, 100);
+
+
+
+// Output the soil moisture percentage to the Serial monitor Serial.print("Soil Moisture: "); Serial.print(moisturePercentage);
+Serial.println("%");
+
+
+
+// Wait for a short delay before taking the next reading delay(1000);
+}
